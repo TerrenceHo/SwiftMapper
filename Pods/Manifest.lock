@@ -1,0 +1,32 @@
+PODS:
+  - MotionDnaSDK (1.2.7)
+  - NavisensPlugins/NavisensCore (1.3.0)
+  - NavisensPlugins/NavisensMaps (1.3.0)
+
+DEPENDENCIES:
+  - MotionDnaSDK (from `https://github.com/navisens/iOS-SDK.git`)
+  - NavisensPlugins/NavisensCore (from `https://github.com/navisens/iOS-Plugin.git`, branch `repositories`)
+  - NavisensPlugins/NavisensMaps (from `https://github.com/navisens/iOS-Plugin.git`, branch `repositories`)
+
+EXTERNAL SOURCES:
+  MotionDnaSDK:
+    :git: https://github.com/navisens/iOS-SDK.git
+  NavisensPlugins:
+    :branch: repositories
+    :git: https://github.com/navisens/iOS-Plugin.git
+
+CHECKOUT OPTIONS:
+  MotionDnaSDK:
+    :commit: 3a58efda3559d2b36e72a2ab13d69373d2664ad6
+    :git: https://github.com/navisens/iOS-SDK.git
+  NavisensPlugins:
+    :commit: 47a9e4589e7999e99795fb2aad7c58a578604962
+    :git: https://github.com/navisens/iOS-Plugin.git
+
+SPEC CHECKSUMS:
+  MotionDnaSDK: 28538f1bd779106380c0edd58a53db434d98326a
+  NavisensPlugins: 117ee85fc45dea0fa57e0203e9a587826a4a9eca
+
+PODFILE CHECKSUM: 977397351840e070c301cb989f52cc045417c099
+
+COCOAPODS: 1.4.0

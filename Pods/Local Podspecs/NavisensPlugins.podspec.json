@@ -1,0 +1,55 @@
+{
+  "name": "NavisensPlugins",
+  "version": "1.3.0",
+  "summary": "Provides different plugins for MotionDnaSDK.",
+  "description": "NavisensPlugins contains a list of various plugin to be used with MotionDnaSDK. They provide additional functionality in an easy-to-use and modular format. Make sure you have access to a MotionDnaSDK developer key before using this! See navisens.com for more information.",
+  "homepage": "https://github.com/navisens/iOS-Plugin",
+  "license": {
+    "type": "BSD-3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Joseph Chen": "joseph.chen@navisens.com"
+  },
+  "source": {
+    "git": "https://github.com/navisens/iOS-Plugin.git",
+    "branch": "repositories",
+    "submodules": true,
+    "tag": "1.3.0"
+  },
+  "platforms": {
+    "ios": "9.1"
+  },
+  "subspecs": [
+    {
+      "name": "NavisensCore",
+      "ios": {
+        "vendored_frameworks": "navisenscore/NavisensCore.framework"
+      }
+    },
+    {
+      "name": "NavisensMaps",
+      "ios": {
+        "vendored_frameworks": "navisensmaps/NavisensMaps.framework"
+      }
+    },
+    {
+      "name": "NaviShare",
+      "ios": {
+        "vendored_frameworks": "navishare/NaviShare.framework"
+      }
+    },
+    {
+      "name": "NaviBeacon",
+      "ios": {
+        "vendored_frameworks": "navibeacon/NaviBeacon.framework"
+      }
+    },
+    {
+      "name": "NaviPoints",
+      "ios": {
+        "vendored_frameworks": "navipoints/NaviPoints.framework"
+      }
+    }
+  ]
+}
