@@ -20,7 +20,7 @@ import NavisensMaps
 // Saves floor plans on a new tab
 // When you go back onto a previous floor, reload that same UIView
 
-
+@IBDesignable
 class ViewController: UIViewController {
     
     @IBOutlet weak var mapContainer: UIView!
@@ -35,6 +35,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        button.layer.cornerRadius = 10
+        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+    
         // Do any additional setup after loading the view, typically from a nib.
         
         core = NavisensCore(DEVKEY)
@@ -55,14 +60,19 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBOutlet weak var button: UIButton!
+    
     @IBAction func buttonHandler(_ sender: UIButton) {
+        
+        
         if (isPaused) {
             maps?.resume()
             
             print("Resumed")
             isPaused = false
-        } else {
+        }
+        else {
             maps?.pause()
             
             print("Paused")
