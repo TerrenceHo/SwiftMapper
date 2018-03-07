@@ -23,7 +23,8 @@ import NavisensMaps
 @IBDesignable
 class ViewController: UIViewController {
     
-    @IBOutlet weak var mapContainer: UIView!
+    @IBOutlet weak var mapContainer1: UIView!
+    @IBOutlet weak var mapContainer2: UIView!
 //    @IBOutlet weak var buttonController: UIButton!
     
     let DEVKEY = "gTT2WrESuRrZESypSjpyGTllKzLXBJcd2TYda0FSyfKybqmCJ4uIMZeA3yKywjGJ" // Dev Key
@@ -34,9 +35,12 @@ class ViewController: UIViewController {
     private var maps_list = [NavisensMaps]()  // list of all saved navisens maps
     private var floor = 1
     private var isPaused = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         button.layer.cornerRadius = 10
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -50,16 +54,26 @@ class ViewController: UIViewController {
             .useLocalOnly()
             .showPath()
             .hideMarkers()
-//            .addTo(mapContainer)
-        
+            .addTo(mapContainer1)
+
         maps2 = core!.add(NavisensMaps.self)?
             .useLocalOnly()
             .showPath()
             .hideMarkers()
+            .addTo(mapContainer2)
+
         
-        maps = maps1?.addTo(mapContainer)
+//        maps2 = core!.add(NavisensMaps.self)?
+//            .useLocalOnly()
+//            .showPath()
+//            .hideMarkers()
+//
+//        maps = maps2!.addTo(mapContainer2)
         
-        print(maps1 == maps2)
+        
+        mapContainer1.isHidden = false
+        mapContainer2.isHidden = true
+
         
 //        maps_list.append(maps!)
     }
@@ -74,11 +88,34 @@ class ViewController: UIViewController {
 
     @IBAction func buttonHandler(_ sender: UIButton) {
         if (floor == 1) {
-            mapContainer = UIView()
-            maps = maps2?.addTo(mapContainer)
+            
+//            maps1!.save()
+//              core!.remove(maps1!)
+//            maps2!.addTo(mapContainer1)
+//            maps2?.restart()
+            
+            mapContainer1.isHidden = true
+            mapContainer2.isHidden = false
+            
+            
             floor = 2
         } else {
-            maps = maps1?.addTo(mapContainer)
+            
+//            maps2!.save()
+//            core!.remove(maps2!)
+            
+//            maps1!.restart()
+        
+//            core!.add(maps1!)?
+//                .useLocalOnly()
+//                .showPath()
+//                .hideMarkers()
+//                .addTo(mapContainer1)
+//            maps1!.addTo(mapContainer1)
+            
+            mapContainer1.isHidden = false
+            mapContainer2.isHidden = true
+            
             floor = 1
         }
         
