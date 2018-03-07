@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     let DEVKEY = "gTT2WrESuRrZESypSjpyGTllKzLXBJcd2TYda0FSyfKybqmCJ4uIMZeA3yKywjGJ" // Dev Key
     private var core: NavisensCore?
     private var maps: NavisensMaps?
+    private var maps1: NavisensMaps?
+    private var maps2: NavisensMaps?
     private var maps_list = [NavisensMaps]()  // list of all saved navisens maps
     private var floor = 1
     private var isPaused = false
@@ -44,14 +46,20 @@ class ViewController: UIViewController {
         
         core = NavisensCore(DEVKEY)
         
-        maps = core!.add(NavisensMaps.self)?
+        maps1 = core!.add(NavisensMaps.self)?
             .useLocalOnly()
-//            .addControls()
             .showPath()
             .hideMarkers()
-            .addTo(mapContainer)
+//            .addTo(mapContainer)
         
+        maps2 = core!.add(NavisensMaps.self)?
+            .useLocalOnly()
+            .showPath()
+            .hideMarkers()
         
+        maps = maps1?.addTo(mapContainer)
+        
+        print(maps1 == maps2)
         
 //        maps_list.append(maps!)
     }
@@ -78,6 +86,18 @@ class ViewController: UIViewController {
             print("Paused")
             isPaused = true
         }
+        
+//        if (isPaused) {
+//            maps?.resume()
+//
+//            print("Resumed")
+//            isPaused = false
+//        } else {
+//            maps?.pause()
+//
+//            print("Paused")
+//            isPaused = true
+//        }
     }
 }
 
