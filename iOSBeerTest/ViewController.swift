@@ -71,20 +71,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
     
+
     @IBAction func buttonHandler(_ sender: UIButton) {
-        
-        
-        if (isPaused) {
-            maps?.resume()
-            
-            print("Resumed")
-            isPaused = false
-        }
-        else {
-            maps?.pause()
-            
-            print("Paused")
-            isPaused = true
+        if (floor == 1) {
+            mapContainer = UIView()
+            maps = maps2?.addTo(mapContainer)
+            floor = 2
+        } else {
+            maps = maps1?.addTo(mapContainer)
+            floor = 1
         }
         
 //        if (isPaused) {
